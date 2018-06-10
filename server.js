@@ -29,11 +29,6 @@ function doDate(){
 	minutes = minutes < 10 ? '0'+minutes : minutes;
 	seconds = seconds < 10 ? '0'+seconds : seconds;
 
-    // var days = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-    // var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-
-    
-
     str += "The time is: " + hours +":" + minutes + ":" + seconds + ampm;
     document.getElementById("todaysDate").innerHTML = str;
 }
@@ -44,6 +39,24 @@ setInterval(doDate, 1000);
 ////////////////////////////////////////////
 // REACT TIME
 
-const myButton2 = React.createElement('button', null, 'Click Me');
+function upDate(){
+	var now = new Date();
+	var localTime = now.toLocaleTimeString('en-US');
+	const myButton2 = React.createElement('p', null, localTime);
 
-ReactDOM.render(myButton2, document.getElementById('reactTime'));
+	ReactDOM.render(myButton2, document.getElementById('reactTime'));
+}
+
+
+setInterval(upDate, 1000);
+
+////////////////////////////////////////////
+
+const title = React.createElement('h1', null, 'Hello Dojo!');
+const subject = React.createElement('h2', null, 'Things I need to do:');
+const item1 = React.createElement('li', null, 'Learn React');
+const item2 = React.createElement('li', null, 'Climb Mt. Everest');
+const item3 = React.createElement('li', null, 'Run a marathon');
+
+ReactDOM.render([title, subject, item1, item2, item3], document.getElementById('helloDojo'));
+
